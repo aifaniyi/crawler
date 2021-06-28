@@ -18,10 +18,7 @@ func init() {
 }
 
 func extractUrls(pageUrl, pageHtmlContent string) *PageData {
-	parsed, err := url.Parse(pageUrl)
-	if err != nil {
-		// ignore since we already have content for url
-	}
+	parsed, _ := url.Parse(pageUrl) // ignore error since we already have content for pageUrl
 	matches := re.FindAllString(pageHtmlContent, -1)
 	urls := []string{}
 
