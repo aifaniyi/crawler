@@ -25,8 +25,10 @@ func main() {
 }
 
 func Init(url string) {
+	var pageFetcher IFetcher
+
 	jobs := make(chan string, workers)
-	pageFetcher := NewFetcher()
+	pageFetcher = NewFetcher()
 	safeQ := NewSafeQueue()
 	safeQ.enqueue(url)
 	history := map[string]struct{}{}
